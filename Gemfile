@@ -49,6 +49,7 @@ group :development do
   gem 'haml-lint', require: false
   gem 'rubocop', require: false
   gem 'sgcop', github: 'SonicGarden/sgcop', require: false
+  gem 'solargraph', require: false
   gem 'spring'
 end
 
