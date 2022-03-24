@@ -35,6 +35,9 @@ CommitMsg:
   ALL:
     enabled: false
 PreCommit:
+  ALL:
+    exclude: &default_excludes
+      - "task_table/*"
   AuthorEmail:
     enabled: false
   AuthorName:
@@ -51,9 +54,11 @@ PreCommit:
   RuboCop:
     enabled: true
     command: ["bundle", "exec", "rubocop"]
+    exclude: *default_excludes
   RailsBestPractices:
     enabled: true
     command: ["bundle", "exec", "rails_best_practices"]
+    exclude: *default_excludes
 PrePush:
   Brakeman:
     enabled: true
