@@ -47,6 +47,7 @@ group :development do
   gem 'rack-mini-profiler', '~> 2.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'haml-lint', require: false
+  gem 'rails_best_practices', require: false
   gem 'rubocop', require: false
   gem 'sgcop', github: 'SonicGarden/sgcop', require: false
   gem 'solargraph', require: false
