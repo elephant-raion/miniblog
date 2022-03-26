@@ -7,13 +7,12 @@ class MicropostsController < ApplicationController
 
   # POST /microposts
   def create
-    @micropost = Micropost.new(micropost_params, posted_at: Date.current)
+    @micropost = Micropost.new(micropost_params)
 
     if @micropost.save
-      redirect_to @micropost, flash: { success: '投稿に成功しました' }
+      redirect_to microposts_path, flash: { success: '投稿に成功しました' }
     else
-      flash.now[:error] = '投稿に失敗しました'
-      render :new
+      redirect_to microposts_path, flash: { error: '投稿に失敗しました' }
     end
   end
 
@@ -21,6 +20,6 @@ class MicropostsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def micropost_params
-    params.require(:micropost).permit(:content)
+    params.require(:micropost).permit(:content, :posted_at)
   end
 end

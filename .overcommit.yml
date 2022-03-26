@@ -56,9 +56,7 @@ PreCommit:
     command: ["bundle", "exec", "rubocop"]
     exclude: *default_excludes
   RailsBestPractices:
-    enabled: true
-    command: ["bundle", "exec", "rails_best_practices"]
-    exclude: *default_excludes
+    enabled: false
 PrePush:
   Brakeman:
     enabled: true

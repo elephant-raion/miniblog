@@ -1,0 +1,7 @@
+.row
+  .col-3= render 'microposts/form', micropost: @micropost
+  .col
+    .row
+      - @microposts.each do |micropost|
+        .row.my-1= render 'microposts/micropost', micropost: micropost
+    .row.my-3!= pagy_bootstrap_nav(@pagy)
