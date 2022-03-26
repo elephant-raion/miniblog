@@ -16,6 +16,9 @@
 #
 default: &default
   adapter: postgresql
+  username: miniblog
+  password: 
+  host: localhost
   encoding: unicode
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
@@ -79,8 +82,3 @@ test:
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
 #
-production:
-  <<: *default
-  database: miniblog_production
-  username: miniblog
-  password: <%= ENV['MINIBLOG_DATABASE_PASSWORD'] %>

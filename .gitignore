@@ -34,3 +34,10 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+
+# Igore setting file of database connection
+# because the connection in local environment is personal.
+/config/database.yml
+
+# Igore simplecov output
+/coverage/
