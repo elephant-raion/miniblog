@@ -2,7 +2,7 @@ class MicropostsController < ApplicationController
   # GET /microposts
   def index
     @micropost = Micropost.new
-    @pagy, @microposts = pagy(Micropost.all)
+    @pagy, @microposts = pagy(Micropost.all.order(id: :desc))
   end
 
   # POST /microposts
