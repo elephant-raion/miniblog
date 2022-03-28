@@ -10,5 +10,5 @@
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     = render 'layouts/nav'
-    .container= render 'layouts/flash_messages'
-    .container.my-2= yield
+    .container-fluid= render 'layouts/flash_messages'
+    .container-fluid.my-2= yield
