@@ -17,8 +17,6 @@ gem 'webpacker', '5.4.3'
 gem 'turbolinks', '~> 5'
 # haml-railsは、HAML generatorsを提供する
 gem 'haml-rails', '~> 2.0'
-# paginationをsupportするgem
-gem 'pagy', '~> 5.10'
 gem 'simple_form'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
