@@ -5,11 +5,13 @@
 - [x] 大まかなタスクにばらす, 見積時間: 20 min., 所要時間: 15 min.
 - [x] [Micropostのviewを追加する]タスクをばらす, 見積時間: 10 min., 所要時間: 8 min.
 - [x] [[短文を投稿する]というユースケースが実現可能であることを確かめるsystem specを追加する]タスクをばらす, 見積時間: 20 min., 所要時間: 18 min.
+- [x] [Paginationを`kaminari` gemで実現する]タスクをばらす, 見積時間: 30 min., 所要時間: 30 min.
 
 ## 調査
 
 - [x] Bootstrapのgrid systemをどのように振る舞うのかを調べる, 見積時間: 30 min., 所要時間: 40 min.
 - [x] simple_formのsubmitで表示されるラベルをロケールファイルから探し出す方法を調べる, 見積時間: 15 min., 所要時間: 13 min.
+- [x] `kaminari` gemの使い方を調べる, 見積時間: 15 min., 所要時間: 13 min.
 
 ## 実装
 
@@ -47,3 +49,24 @@
     5. そこに、`A short messge`という投稿が表示されていることを確認する
     6. さらに、投稿日時が表示されていることも確かめる
   - 文字数が多すぎて、失敗するパターンも検証する
+- Paginationを`kaminari` gemで実現する
+  - [x] `pagy` gemに関連するものを取り除く, 見積時間: 10 min., 所要時間: 4 min.
+    - `Gemfile`から`pagy` gemを取り除く
+    - `config/initializers/pagy.rb`を削除する
+    - `app/helpers/application_helper.rb`から`include Pagy::Frontend`を消す
+    - `app/controllers/application_controller.rb`から`include Pagy::Backend`を消す
+  - [x] `kaminari` gemを導入する, 見積時間: 5 min., 所要時間: 3 min.
+    -  `gem 'kaminari'` >> `Gemfile`
+    -  1 pageごとに10投稿だけ表示する
+       - `rails g kaminari:config`
+       - `config/initializers/kaminari_config.rb`に`config.default_per_page = 10`と設定する
+  - [x] pagination のlayoutをbootstrap5仕様にする, 見積時間: 30 min., 所要時間: 30 min.
+    - `rails g kaminari:views default`
+  - [x] controllerとviewを`kaminari` gem仕様にする, 見積時間: 3 min., 所要時間: 2 min.
+    - controller
+      - `@microposts = Micropost.order(id: :desc).page params[:page]`
+    - view
+      - `= paginate @microposts`
+  - [x] `kaminari` gem用のlocale file `config/locales/kaminari.ja.yml`を設定する, 見積時間: 15 min., 所要時間: 10 min.
+
+  
