@@ -2,7 +2,7 @@ class MicropostsController < ApplicationController
   # GET /microposts
   def index
     @micropost = Micropost.new
-    @microposts = Micropost.order(id: :desc).page params[:page]
+    @microposts = Micropost.order(id: :desc).page(params[:page])
   end
 
   # POST /microposts
@@ -12,7 +12,7 @@ class MicropostsController < ApplicationController
     if @micropost.save
       redirect_to microposts_path, flash: { success: '投稿に成功しました' }
     else
-      @microposts = Micropost.order(id: :desc).page params[:page]
+      @microposts = Micropost.order(id: :desc).page(params[:page])
       flash[:error] = '投稿に失敗しました'
       render :index
     end
