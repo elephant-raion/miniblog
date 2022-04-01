@@ -1,0 +1,4 @@
+= simple_form_for micropost do |f|
+  .my-1= f.input :content
+  = f.input :posted_at, as: :hidden, input_html: { value: Time.current }
+  .d-grid.gap-2= f.button :submit, class: 'btn-primary'

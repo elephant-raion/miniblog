@@ -1,0 +1,4 @@
+.card
+  .card-body
+    %p= micropost.content
+    %p #{Micropost.human_attribute_name(:posted_at)}: #{l(micropost.posted_at, format: :long)}

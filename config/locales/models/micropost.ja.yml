@@ -1,0 +1,8 @@
+ja:
+  activerecord:
+    models:
+      micropost: 投稿
+    attributes:
+      micropost:
+        content: 投稿内容
+        posted_at: 投稿時間

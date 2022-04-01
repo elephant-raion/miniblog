@@ -1,0 +1,5 @@
+ja:
+  helpers:
+    submit:
+      micropost:
+        create: "投稿する"
