@@ -1,0 +1,6 @@
+%nav.navbar.navbar-dark.bg-primary
+  .container-fluid
+    = link_to 'ミニブログ', root_path, class: 'navbar-brand'
+    %ul.nav.justify-content-end
+      %li.nav-item
+        = link_to t(:sign_out, scope: :nav), destroy_user_session_path, method: :delete, class: 'nav-link text-white'

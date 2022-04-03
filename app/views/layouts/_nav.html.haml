@@ -1,2 +1,6 @@
-%nav.nav.navbar-dark.bg-primary.py-1
-  .nav-link= link_to 'ミニブログ', root_path, class: 'navbar-brand'
+%nav.navbar.navbar-dark.bg-primary
+  .container-fluid
+    = link_to 'ミニブログ', root_path, class: 'navbar-brand'
+    %ul.nav.justify-content-end
+      %li.nav-item= link_to t(:sign_up, scope: :nav), new_user_registration_path, class: 'nav-link text-white'
+      %li.nav-item= link_to t(:sign_in, scope: :nav), new_user_session_path, class: 'nav-link text-white'

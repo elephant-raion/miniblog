@@ -1,0 +1,7 @@
+ja:
+  simple_form:
+    "yse": はい
+    "no": いいえ
+    required:
+      text: 必須
+      mark: "*"

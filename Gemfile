@@ -54,6 +54,7 @@ group :development do
   gem 'rack-mini-profiler', '~> 2.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'brakeman', require: false
+  gem 'devise-i18n'
   gem 'haml-lint', require: false
   gem 'overcommit', require: false
   gem 'rails_best_practices', require: false
