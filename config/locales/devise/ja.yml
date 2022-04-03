@@ -1,5 +1,5 @@
 ja:
-  users:
+  devise: &devise
     confirmations:
       confirmed: メールアドレスが確認できました。
       new:
@@ -103,6 +103,7 @@ ja:
       send_instructions: アカウントのロック解除方法を数分以内にメールでご連絡します。
       send_paranoid_instructions: アカウントが見つかった場合、アカウントのロック解除方法を数分以内にメールでご連絡します。
       unlocked: アカウントをロック解除しました。
+  users: *devise
   errors:
     messages:
       already_confirmed: は既に登録済みです。ログインしてください。
