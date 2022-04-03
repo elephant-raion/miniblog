@@ -1,2 +1,4 @@
 inherit_gem:
   sgcop: rails/rubocop.yml
+RSpec/NestedGroups:
+  Max: 4
