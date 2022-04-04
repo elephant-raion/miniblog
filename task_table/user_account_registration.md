@@ -20,29 +20,29 @@
 
 ## 実装
 
-- [ ] `devise` gemの設定をする, 見積時間: 10 min., 所要時間: min.
-  - `rails g devise::install`
+- [x] `devise` gemの設定をする, 見積時間: 10 min., 所要時間: 9 min.
+  - `rails g devise:install`
   - devise initializerを編集して、viewの検索ではscopeを優先するように設定する
     `config.scoped_views = true`
   - 開発及び本番の両環境のActionMailerのurlを設定する
-- [ ] User modelを作成する, 見積時間: 10 min., 所要時間: min.
+- [x] User modelを作成する, 見積時間: 10 min., 所要時間: 4 min.
   - `rails g devise User name:string profile:text url:string`
   - `name`はユーザー名、`profile`はプロフィール、`url`はブログURLを記録する属性である
   - `name`にunique indexを付与する
     - `add_index :users, :name, unique: true`
   - それら属性は`null`となることを許さず、defaultで空文字である
     - `null: false, default: ''`
-- [ ] User modelの属性のvalidationを定める, 見積時間: 15 min., 所要時間: min.
+- [x] User modelの属性のvalidationを定める, 見積時間: 15 min., 所要時間: 4 min.
   - URLのvalidationに`validate_url` gemを用いる
   ```ruby
   validates :name, presence: true, uniqueness: true, length: { maximum: 20}, format: { with: /\A[a-zA-Z]+\Z/ }
   validates :profile, length: { maximum: 200 }
   validates :url, url: { allow_blank: true }
   ```
-- [ ] User modelのmodel specを作成する, 見積時間: 30 min., 所要時間: min.
+- [x] User modelのmodel specを作成する, 見積時間: 30 min., 所要時間: 28 min.
   - User modelのfactoryを作成する
   - 全てのvalidationが想定通り動いていることを確かめるmodel specを作成する
-- [ ] ログインにユーザー名を用いる, 見積時間: 3 min., 所要時間: min.
+- [x] ログインにユーザー名を用いる, 見積時間: 3 min., 所要時間: 3 min.
   ```ruby
   # models/user.rb
 
@@ -52,11 +52,11 @@
     where(conditions).first
   end
   ```
-- [ ] User model用のDevise controllerを生成し、整備する, 見積時間: 5 min., 所要時間: min.
+- [x] User model用のDevise controllerを生成し、整備する, 見積時間: 5 min., 所要時間: 2 min.
   - `rails g devise:controllers users`
   - 不要なcontrollerを削除する
   - 不要なコメントを削除する
-- [ ] registration_controller.rbを編集して、ユーザーアカウントの作成時にユーザー名、プロフィール、ブログURLを記入できる状態にする, 見積時間: 5 min., 所要時間: min.
+- [x] registration_controller.rbを編集して、ユーザーアカウントの作成時にEメール、プロフィール、ブログURLを記入できる状態にする, 見積時間: 5 min., 所要時間: 4 min.
   ```ruby
   # registrations_controller.rb
 
@@ -68,28 +68,27 @@
     devise_parameter_sanitizer.permit(:sign_up, keys: %i[email profile url])
   end
   ```
-- [ ] ユーザーアカウント登録のroutingを独自のcontrollerを使う設定にする, 見積時間: 3 min., 所要時間: min.
+- [x] ユーザーアカウント登録のroutingを独自のcontrollerを使う設定にする, 見積時間: 3 min., 所要時間: 2 min.
   ```ruby
   devise_for :user, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions',
   }
   ```
-- [ ] User model用のviewを生成し、整備する, 見積時間: 20 min., 所要時間: min.
+- [x] User model用のviewを生成し、整備する, 見積時間: 20 min., 所要時間: 10 min.
   - `devise-i18n` gemを使って、`devise` gemのlocaleを利用できるようにする
   - `rails g devise:i18n:views users`
   - `HAML_RAILS_DELETE_ERB=true rails haml:erb2haml`
   - 不要なものを削除する
-- [ ] ユーザーアカウント登録に関するviewを整備する, 見積時間: 15 min., 所要時間: min.
+- [x] ユーザーアカウント登録に関するviewを整備する, 見積時間: 15 min., 所要時間: 4 min.
   - ユーザー名、プロフィール、ブログURLを入力できるようにする。ただし、ユーザー名は必須入力とする
-- [ ] User modelとそのDevise controller用のlocale fileを生成し、整備する, 見積時間: 15 min., 所要時間: min.
+- [x] User modelとそのDevise controller用のlocale fileを生成し、整備する, 見積時間: 15 min., 所要時間: 3 min.
   - `rails g devise:i18n:locale ja`
-- [ ] User modelのlocaleにユーザー名、プロフィール、ブログURLの定義をする, 見積時間: 5 min., 所要時間: min.
-- [ ] ログイン前とログイン後のnavigation barを作成する, 見積時間: 20 min., 所要時間: min.
-- [ ] ユーザーアカウント登録画面を作成する, 見積時間: 20 min., 所要時間: min.
-- [ ] ログイン画面を作成する, 見積時間: 15 min., 所要時間: min.
-- [ ] simple_formのlocale fileを整える, 見積時間: 5 min., 所要時間: min.
-- [ ] ユーザーアカウントを登録するsystem specを作成する, 見積時間: 30 min., 所要時間: min.
+- [x] User modelのlocaleにユーザー名、プロフィール、ブログURLの定義をする, 見積時間: 5 min., 所要時間: 2 min.
+- [x] ログイン前とログイン後のnavigation barを作成する, 見積時間: 20 min., 所要時間: 18 min.
+- [x] ログイン画面を作成する, 見積時間: 15 min., 所要時間: 6 min.
+- [x] simple_formのlocale fileを整える, 見積時間: 5 min., 所要時間: 2 min.
+- [x] ユーザーアカウントを登録するsystem specを作成する, 見積時間: 30 min., 所要時間: 14 min.
   - 以下の流れができることを検証する
     1. トップページにアクセスする
     2. アカウント登録リンクをクリックし、登録画面を表示する
@@ -97,7 +96,7 @@
     4. 登録するボタンを押す。押す前と後で、ユーザーアカウント全体の総数が1増えることを確かめる
     5. 登録成功のメッセージが表示することを確かめる
   - 上記の３で、数字が入ったユーザー名を入力しvalidation errorが表示されることを確かめる
-- [ ] ユーザーがログインしてログアウトするsystem specを作成する, 見積時間: 30 min., 所要時間: min.
+- [x] ユーザーがログインしてログアウトするsystem specを作成する, 見積時間: 20 min., 所要時間: 18 min.
   - 以下の流れができることを検証する
     1. トップページにアクセスする
     2. ログインリンクをクリックし、ログイン画面を表示する
