@@ -12,7 +12,7 @@ RSpec.describe '誰でもアカウントを登録できる', type: :system do
       fill_in 'パスワード *', with: 'password'
       fill_in 'パスワード（確認用） *', with: 'password'
 
-      expect { click_button 'アカウント登録' }.to change { User.all.count }.from(0).to(1)
+      expect { click_button 'アカウント登録' }.to change(User, :count).by(1)
       expect(page).to have_current_path root_path
       expect(page).to have_content 'アカウント登録が完了しました。'
     end
