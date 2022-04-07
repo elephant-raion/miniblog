@@ -3,10 +3,5 @@ class User < ApplicationRecord
   validates :profile, length: { maximum: 200 }
   validates :blog_url, url: { allow_blank: true }
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable,
-         authentication_keys: [:name]
-
-  def self.find_for_database_authentication(conditions)
-    where(conditions).first
-  end
+         :recoverable, :rememberable, :validatable
 end
