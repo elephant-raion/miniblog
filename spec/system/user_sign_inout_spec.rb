@@ -19,6 +19,7 @@ RSpec.describe 'ユーザーはログインとログアウトができる', type
       click_link 'ログアウト'
       expect(page).to have_current_path root_path
       expect(page).to have_content 'ログアウトしました。'
+      expect(page).to have_no_link 'ログアウト'
     end
   end
 
