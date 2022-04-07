@@ -24,15 +24,15 @@ RSpec.describe User, type: :model do
       end
     end
 
-    context '20文字以内である場合' do
-      let(:user) { build :user, name: 'tester' }
+    context '20文字である場合' do
+      let(:user) { build :user, name: 'a' * 20 }
 
       it 'その長さは適切である' do
         expect(user).to be_valid
       end
     end
 
-    context '21文字以上である場合' do
+    context '21文字である場合' do
       let(:user) { build :user, name: 'a' * 21 }
 
       it 'その長さは不適切である' do
@@ -41,56 +41,34 @@ RSpec.describe User, type: :model do
       end
     end
 
-    context '空白がない場合' do
-      context 'アルファベットだけで構成される場合' do
-        let(:user) { build :user, name: 'tester' }
+    context 'アルファベットだけで構成される場合' do
+      let(:user) { build :user, name: 'tester' }
 
-        it 'それは適切な形式である' do
-          expect(user).to be_valid
-        end
-      end
-
-      context 'アルファベットとそれ以外のもので構成される場合' do
-        let(:user) { build :user, name: 'tester1' }
-
-        it 'それは不適切な形式である' do
-          expect(user).to be_invalid
-          expect(user.errors).to be_of_kind(:name, :invalid)
-        end
+      it 'それは適切な形式である' do
+        expect(user).to be_valid
       end
     end
 
-    context '空白がある場合' do
-      context 'アルファベットだけで構成される場合' do
-        let(:user) { build :user, name: 'tester bob' }
+    context '数字が含まれている場合' do
+      let(:user) { build :user, name: 'tester1' }
 
-        it 'それは不適切な形式である' do
-          expect(user).to be_invalid
-          expect(user.errors).to be_of_kind(:name, :invalid)
-        end
-      end
-
-      context 'アルファベットとそれ以外のもので構成される場合' do
-        let(:user) { build :user, name: 'tester 1' }
-
-        it 'それは不適切な形式である' do
-          expect(user).to be_invalid
-          expect(user.errors).to be_of_kind(:name, :invalid)
-        end
+      it 'それは不適切な形式である' do
+        expect(user).to be_invalid
+        expect(user.errors).to be_of_kind(:name, :invalid)
       end
     end
   end
 
   describe 'プロフィールが' do
-    context '200文字以内である場合' do
-      let(:user) { build :user, profile: 'My introduction is: ' }
+    context '200文字である場合' do
+      let(:user) { build :user, profile: 'a' * 200 }
 
       it 'その長さは適切である' do
         expect(user).to be_valid
       end
     end
 
-    context '201文字以上である場合' do
+    context '201文字である場合' do
       let(:user) { build :user, profile: 'a' * 201 }
 
       it 'その長さは不適切である' do
