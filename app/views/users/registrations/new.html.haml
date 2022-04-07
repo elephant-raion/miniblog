@@ -3,7 +3,7 @@
   = f.input :name, required: true, autofocus: true
   = f.input :email, required: true, input_html: { autocomplete: 'email' }
   = f.input :profile
-  = f.input :url
+  = f.input :blog_url
   = f.input :password, required: true,
     hint: (t('devise.shared.minimum_password_length', count: @minimum_password_length) if @minimum_password_length),
     input_html: { autocomplete: 'new-password' }

@@ -102,16 +102,16 @@ RSpec.describe User, type: :model do
 
   describe 'ブログURLが' do
     context 'スキームを持たない場合' do
-      let(:user) { build :user, url: 'github.com/tester' }
+      let(:user) { build :user, blog_url: 'github.com/tester' }
 
       it 'それは不適切である' do
         expect(user).to be_invalid
-        expect(user.errors).to be_of_kind(:url, :url)
+        expect(user.errors).to be_of_kind(:blog_url, :url)
       end
     end
 
     context 'スキームを持つ場合' do
-      let(:user) { build :user, url: 'https://github.com/tester' }
+      let(:user) { build :user, blog_url: 'https://github.com/tester' }
 
       it 'それは適切である' do
         expect(user).to be_valid

@@ -12,6 +12,6 @@ FactoryBot.define do
       "tester#{lowercase_alphabets[n - 1]}"
     end
     profile { '' }
-    url { '' }
+    blog_url { '' }
   end
 end
