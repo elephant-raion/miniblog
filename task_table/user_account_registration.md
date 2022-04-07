@@ -17,6 +17,7 @@
 - [x] Deviseで独自のcontrollerを使うときの設定を調べる, 見積時間: 15 min., 所要時間: 12 min.
 - [x] URLのvalidationの方法を調べる, 見積時間: 20 min., 所要時間: 15 min.
 - [x] ログイン情報としてユーザー名を使う方法を調べる, 見積時間: 30 min., 所要時間: 30 min.
+- [x] 認証キーを`User#name`に変更するときに、`self.find_for_database_authentication(conditions)`をoverrideする必要があるか調べる, 見積時間: 10 min., 所要時間: 5 min.
 
 ## 実装
 
