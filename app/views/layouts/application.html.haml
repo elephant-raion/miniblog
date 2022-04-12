@@ -9,6 +9,9 @@
     = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    = render 'layouts/nav'
+    - if user_signed_in?
+      = render 'layouts/users/nav'
+    - else
+      = render 'layouts/nav'
     .container-fluid= render 'layouts/flash_messages'
     .container-fluid.my-2= yield

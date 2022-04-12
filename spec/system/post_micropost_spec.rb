@@ -6,7 +6,7 @@ RSpec.describe '短文を投稿できる', type: :system do
       visit root_path
       fill_in '投稿内容', with: 'A short message'
 
-      expect { click_button '投稿する' }.to change { Micropost.all.count }.from(0).to(1)
+      expect { click_button '投稿する' }.to change(Micropost, :count).by(1)
       expect(page).to have_current_path microposts_path
       expect(page).to have_content '投稿に成功しました'
       expect(page).to have_content 'A short message'
